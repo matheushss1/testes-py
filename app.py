@@ -9,3 +9,7 @@ def index():
 @app.route("/matheus")
 def matheus():
     return "Olá, Matheus"
+
+@app.route("/<string:name>")
+def hello(name):
+    return f"Olá, {name}"
