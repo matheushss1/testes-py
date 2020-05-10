@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>É MEU NIVER?</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            body{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> HOJE É NIVER DO MATHEUS?</h1>
+        {% if niver %}
+        <h2>R: Sim, feliz aniversário!</h2>
+        {% else %}
+        <h2>R: Não!</h2>
+        {% endif %}
+    </body>
+</html>
