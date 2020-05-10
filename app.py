@@ -12,4 +12,5 @@ def matheus():
 
 @app.route("/<string:name>")
 def hello(name):
+    name = name.capitalize()
     return f"Olá, {name}"
