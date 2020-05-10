@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Teste no Flask</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    <body>
-        <h1>{{headline}}</h1>
-        <h2>Página da web totalmente desenhada por Matheus!</h2>
-    </body>
-</html>
+{% extends "layout.html" %}
+
+{% block heading %}
+
+{% endblock %}
+
+{% block body %}
+    <h2>Página da web totalmente desenhada por Matheus!</h2>
+    <form action="{{ url_for('apresentacao')}}" method="POST">
+        <div class="row">
+            <div class="col-sm-4"><input type="text" name="nome" placeholder="Seu nome..."></div>
+            <div class="col-sm-8"><button >Clica!</button></div>
+          </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-4"><p><a href="{{ url_for('niver')  }}">Será que hoje é seu niver?</a></p></div>
+        <div class="col-sm-8"><p><a href="{{ url_for('nome')  }}">Meu nome completo</a></p></div>
+      </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+Meu nome é: 
+{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for nome in nomes %}
+        <li>{{ nome }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

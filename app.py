@@ -1,5 +1,5 @@
 import datetime
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -28,3 +28,13 @@ def niver():
     now = datetime.datetime.now()
     niver = now.month == 6 and now.day == 20
     return render_template("niver.html", niver=niver)
+
+@app.route("/nome_completo")
+def nome():
+    nomes = ["Matheus", "Henrique", "de", "Souza", "Silva"]
+    return render_template("nome_completo.html", nomes=nomes)
+
+@app.route("/apresentacao", methods=["POST"])
+def apresentacao():
+    nome = request.form.get("nome")
+    return render_template("apresentacao.html", nome=nome)
