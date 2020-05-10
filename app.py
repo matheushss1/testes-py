@@ -1,7 +1,14 @@
 import datetime
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
+from flask_session import Session
 
 app = Flask(__name__)
+Session(app) 
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+
+
+textos = []
 
 @app.route("/")
 def index():
@@ -38,3 +45,12 @@ def nome():
 def apresentacao():
     nome = request.form.get("nome")
     return render_template("apresentacao.html", nome=nome)
+
+
+@app.route("/textos", methods=["GET", "POST"])
+def meusTextos():
+    if request.method == "POST":
+        texto = request.form.get("texto")
+        textos.append(texto)
+
+    return render_template("textos.html", textos=textos)

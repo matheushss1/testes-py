@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<style>
+    form{
+        margin-top: 4%;
+        margin-bottom: 5%;
+    } 
+    input{
+        line-height: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block heading %}
+Meus Textos
+{% endblock %}
+
+{% block body %}
+<ul>
+    {% for texto in textos %}
+    <li>{{texto}}</li>
+    {% endfor %}
+</ul>
+
+<form action="{{  url_for('meusTextos')  }}" method="POST">
+    <div class="input-group">    
+        <input class="form-control input-lg" id="inputlg" type="text" name="texto" placeholder="Escreva aqui...">
+    </div>
+    <div id="botao">
+        <button class="btn btn-primary btn-block">Adicionar Texto</button>
+    </div>
+</form>
+{% endblock %}
